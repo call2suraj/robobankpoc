@@ -87,6 +87,7 @@ export default function FileImport() {
 
     const validateEndBalanceData = (tableData) => {
         const wrongData = tableData.filter(row => {
+            // check if start balance and mutation is equal to end balance
             if (Number(row["Start Balance"]) + Number(row["Mutation"]) != Number(row["End Balance"])) {
                 console.log(Number(row["Start Balance"]) + Number(row["Mutation"]))
                 console.log('End', Number(row["End Balance"]))
@@ -95,11 +96,12 @@ export default function FileImport() {
             return false;
         })
         console.log('wrongData', wrongData);
+        // store wrong data count 
         setWrongData(wrongData.length)
     }
 
     return (
-        <div className='mine'>
+        <div className='main'>
             <Card sx={{ width: 965, height: 250, backgroundColor: 'beige', marginTop: 1 }}>
                 <CardContent>
                 </CardContent>
@@ -127,13 +129,13 @@ export default function FileImport() {
             <div style={{ margin: 10 }}>
                 {duplicateData.length == 0 ?
                     <div>
-                        {data.length > 0 && <div style={{ color: 'green', margin: 10, fontFamily: 'serif' }}>
+                        {data.length > 0 && <div className="success-msg">
                             No Duplicate record (references) found. There are {wrongData} records with wrong End Balance
                         </div>}
                         <DataTable data={data} />
                     </div> :
                     <div>
-                        {duplicateData.length > 0 && <div style={{ color: 'red', margin: 10, fontFamily: 'serif' }}>
+                        {duplicateData.length > 0 && <div className="error-msg">
                             Duplicate record (references) encountered. There are {wrongData} records with wrong End Balance
                         </div>}
                         <DataTable data={duplicateData} />

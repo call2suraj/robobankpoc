@@ -1,4 +1,4 @@
-.mine {
+.main {
     background-color: white;
     min-height: 80vh;
     display: flex;
@@ -7,4 +7,20 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+.card { 
+    width: 965px; 
+    height: 250px; 
+    background-color: 'beige'; 
+    margin-top: 1
+}
+.success-msg { 
+    color: green; 
+    margin: 10; 
+    font-family: serif;
+}
+.error-msg { 
+    color: red; 
+    margin: 10; 
+    font-family: serif;
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuid } from 'uuid';
-
+import '../styles/components/DataTable.css';
 // define the data and table header mapping
 const columns = [
   { field: 'Reference', headerName: 'Reference', width: 100 },
@@ -10,9 +10,7 @@ const columns = [
   {
     field: 'Mutation',
     headerName: 'Mutation',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 100,
+    width: 70,
   },
   {
     field: 'Start Balance',
@@ -31,7 +29,7 @@ const columns = [
 
 export default function DataTable(props) {
   return (
-    <div style={{ height: 370, width: '100%' }}>
+    <div className='div'>
       {props?.data?.length > 0 ? <DataGrid getRowId={(row) => uuid()}
         rows={props.data}
         columns={columns}
