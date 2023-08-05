@@ -10,7 +10,7 @@ const columns = [
   {
     field: 'Mutation',
     headerName: 'Mutation',
-    width: 70,
+    width: 110,
   },
   {
     field: 'Start Balance',

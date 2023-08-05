@@ -16,11 +16,12 @@
 }
 .success-msg { 
     color: green; 
-    margin: 10; 
+    margin: 3px; 
     font-family: serif;
+    padding-left: 1px;
 }
 .error-msg { 
     color: red; 
-    margin: 10; 
+    margin: 3px; 
     font-family: serif;
 }

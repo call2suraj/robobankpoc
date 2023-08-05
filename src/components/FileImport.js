@@ -128,9 +128,9 @@ export default function FileImport() {
             </Card>
             <div style={{ margin: 10 }}>
                 {duplicateData.length == 0 ?
-                    <div>
+                    <div style={{paddingLeft : 1}}>
                         {data.length > 0 && <div className="success-msg">
-                            No Duplicate record (references) found. There are {wrongData} records with wrong End Balance
+                             No Duplicate references number found. There are {wrongData} records with wrong End Balance
                         </div>}
                         <DataTable data={data} />
                     </div> :
