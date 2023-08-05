@@ -18,7 +18,7 @@ export default function FileImport() {
     // This state will store the parsed duplicate data from csv
     const [duplicateData, setDuplicateData] = useState([]);
 
-    const [wrongData, setWrongData] = useState(0);
+    const [wrongData, setWrongData] = useState([]);
 
     // It state will contain the error when
     // correct file extension is not used
@@ -97,12 +97,12 @@ export default function FileImport() {
         })
         console.log('wrongData', wrongData);
         // store wrong data count 
-        setWrongData(wrongData.length)
+        setWrongData(wrongData)
     }
 
     return (
         <div className='main'>
-            <Card sx={{ width: 965, height: 250, backgroundColor: 'beige', marginTop: 1 }}>
+            <Card sx={{ width: 965, height: 170, backgroundColor: 'beige', marginTop: 1 }}>
                 <CardContent>
                 </CardContent>
                 <CardActions>
@@ -130,16 +130,27 @@ export default function FileImport() {
                 {duplicateData.length == 0 ?
                     <div style={{paddingLeft : 1}}>
                         {data.length > 0 && <div className="success-msg">
-                             No Duplicate references number found. There are {wrongData} records with wrong End Balance
+                             No Duplicate references number found.
                         </div>}
                         <DataTable data={data} />
                     </div> :
                     <div>
                         {duplicateData.length > 0 && <div className="error-msg">
-                            Duplicate record (references) encountered. There are {wrongData} records with wrong End Balance
+                            Duplicate references number encountered.
                         </div>}
                         <DataTable data={duplicateData} />
                     </div>
+                }
+
+                {
+                    wrongData.length > 0 ? <div style={{ paddingLeft: 1 }}>
+                        {data.length > 0 && <div className="error-msg">
+                            {wrongData.length == 1 ?
+                                <div> There is {wrongData.length} record with wrong End Balance </div>
+                                : <div> There are {wrongData.length} records with wrong End Balance </div>}
+                        </div>}
+                        <DataTable data={wrongData} />
+                    </div> : null
                 }
             </div>
         </div>
