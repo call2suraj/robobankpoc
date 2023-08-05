@@ -96,7 +96,7 @@ export default function FileImport() {
             return false;
         })
         console.log('wrongData', wrongData);
-        // store wrong data count 
+        // store wrong data 
         setWrongData(wrongData)
     }
 
@@ -144,11 +144,14 @@ export default function FileImport() {
 
                 {
                     wrongData.length > 0 ? <div style={{ paddingLeft: 1 }}>
-                        {data.length > 0 && <div className="error-msg">
-                            {wrongData.length == 1 ?
-                                <div> There is {wrongData.length} record with wrong End Balance </div>
-                                : <div> There are {wrongData.length} records with wrong End Balance </div>}
-                        </div>}
+                        {
+                            data.length > 0 && <div className="error-msg">
+                                {wrongData.length == 1 ?
+                                    <div> There is {wrongData.length} record with wrong End Balance </div>
+                                    : <div> There are {wrongData.length} records with wrong End Balance </div>
+                                }
+                            </div>
+                        }
                         <DataTable data={wrongData} />
                     </div> : null
                 }
