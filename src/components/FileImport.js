@@ -30,6 +30,9 @@ export default function FileImport() {
     const handleFileChange = (e) => {
         setFile("");
         setError("");
+        setData([]);
+        setWrongData([]);
+        setDuplicateData([]);
 
         // Check if user has entered the file
         if (e.target.files.length) {
@@ -102,7 +105,7 @@ export default function FileImport() {
 
     return (
         <div className='main'>
-            <Card sx={{ width: 965, height: 170, backgroundColor: 'beige', marginTop: 1 }}>
+            <Card sx={{ width: 965, height: 180, backgroundColor: 'beige'}}>
                 <CardContent>
                 </CardContent>
                 <CardActions>
@@ -123,6 +126,7 @@ export default function FileImport() {
                                 Submit
                             </Button>
                         </div>
+                        <div className="error-msg"> {error !== '' ? 'Wrong file format selected' : null} </div>
                     </div>
                 </CardActions>
             </Card>

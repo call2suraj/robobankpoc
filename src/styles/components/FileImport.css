@@ -1,6 +1,6 @@
 .main {
     background-color: white;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,9 +19,11 @@
     margin: 3px; 
     font-family: serif;
     padding-left: 1px;
+    font-size: medium;
 }
 .error-msg { 
     color: red; 
     margin: 3px; 
     font-family: serif;
+    font-size: medium;
 }
