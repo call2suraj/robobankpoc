@@ -6,6 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import DataTable from '../components/DataTable';
+import DownloadFile from './DownloadFile';
 import '../styles/components/FileImport.css';
 
 // Allowed extensions for input file
@@ -132,16 +133,26 @@ export default function FileImport() {
             </Card>
             <div style={{ margin: 10 }}>
                 {duplicateData.length == 0 ?
-                    <div style={{paddingLeft : 1}}>
-                        {data.length > 0 && <div className="success-msg">
-                             No Duplicate references number found.
-                        </div>}
+                    <div style={{ paddingLeft: 1 }}>
+                        {data.length > 0 && 
+                        <div>
+                            <div className="success-msg">
+                                No Duplicate references number found.
+                            </div>
+                            <DownloadFile data={data} />
+                        </div>
+                        }
                         <DataTable data={data} />
                     </div> :
                     <div>
-                        {duplicateData.length > 0 && <div className="error-msg">
-                            Duplicate references number encountered.
-                        </div>}
+                        {duplicateData.length > 0 && 
+                        <div> 
+                             <div className="error-msg">
+                                Duplicate references number encountered.
+                            </div>
+                            <DownloadFile data={duplicateData} />
+                        </div>
+                       }
                         <DataTable data={duplicateData} />
                     </div>
                 }
@@ -156,6 +167,7 @@ export default function FileImport() {
                                 }
                             </div>
                         }
+                         <DownloadFile data={wrongData} />
                         <DataTable data={wrongData} />
                     </div> : null
                 }
