@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Papa from "papaparse";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import DataTable from '../components/DataTable';
 import DownloadFile from './DownloadFile';
@@ -29,6 +28,7 @@ export default function FileImport() {
     const [file, setFile] = useState("");
 
     const handleFileChange = (e) => {
+        // everytime user select a new file reset all the table data 
         setFile("");
         setError("");
         setData([]);
@@ -106,9 +106,7 @@ export default function FileImport() {
 
     return (
         <div className='main'>
-            <Card sx={{ width: 965, height: 180, backgroundColor: 'beige'}}>
-                <CardContent>
-                </CardContent>
+            <Card sx={{ width: 965, height: 180, backgroundColor: 'beige' }}>
                 <CardActions>
                     <div>
                         <label htmlFor="csvInput" style={{ display: "block", marginBottom: 5 }}>
@@ -134,26 +132,26 @@ export default function FileImport() {
             <div style={{ margin: 10 }}>
                 {duplicateData.length == 0 ?
                     <div style={{ paddingLeft: 1 }}>
-                        {data.length > 0 && 
-                        <div>
-                            <div className="success-msg">
-                                No Duplicate references number found.
+                        {data.length > 0 &&
+                            <div>
+                                <div className="success-msg">
+                                    No Duplicate references number found.
+                                </div>
+                                <DownloadFile data={data} />
+                                <DataTable data={data} />
                             </div>
-                            <DownloadFile data={data} />
-                        </div>
                         }
-                        <DataTable data={data} />
                     </div> :
                     <div>
-                        {duplicateData.length > 0 && 
-                        <div> 
-                             <div className="error-msg">
-                                Duplicate references number encountered.
+                        {duplicateData.length > 0 &&
+                            <div>
+                                <div className="error-msg">
+                                    Duplicate references number encountered.
+                                </div>
+                                <DownloadFile data={duplicateData} />
+                                <DataTable data={duplicateData} />
                             </div>
-                            <DownloadFile data={duplicateData} />
-                        </div>
-                       }
-                        <DataTable data={duplicateData} />
+                        }
                     </div>
                 }
 
@@ -167,7 +165,7 @@ export default function FileImport() {
                                 }
                             </div>
                         }
-                         <DownloadFile data={wrongData} />
+                        <DownloadFile data={wrongData} />
                         <DataTable data={wrongData} />
                     </div> : null
                 }
