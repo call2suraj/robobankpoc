@@ -2,9 +2,6 @@
 
 
 
-https://github.com/call2suraj/robobankpoc/assets/31704596/fb466645-396e-46ec-a0ac-9d6e1150b209
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
