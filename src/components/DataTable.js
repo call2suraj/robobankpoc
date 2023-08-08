@@ -2,6 +2,14 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuid } from 'uuid';
 import '../styles/components/DataTable.css';
+
+/*  
+This file is for  table component. Pass the data object to display in the table
+
+@author : Suraj Behera
+
+*/
+
 // define the data and table header mapping
 const columns = [
   { field: 'Reference', headerName: 'Reference', width: 100 },
@@ -26,7 +34,7 @@ const columns = [
   },
 ];
 
-
+// show the table. If you want checkbox add checkboxSelection
 export default function DataTable(props) {
   return (
     <div className='div'>
@@ -39,7 +47,7 @@ export default function DataTable(props) {
           },
         }}
         pageSizeOptions={[4, 10]}
-        checkboxSelection
+        
       /> : null}
     </div>
   );

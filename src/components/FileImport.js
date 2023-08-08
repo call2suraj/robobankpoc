@@ -11,6 +11,15 @@ import '../styles/components/FileImport.css';
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
+/*  
+This file is the main file for importing .csv file and showing the duplicate data with
+referance number and wrong end balance. The app will not allow any other file format to
+import.
+
+@author : Suraj Behera
+
+*/
+
 export default function FileImport() {
 
     // This state will store the parsed data from csv
@@ -110,7 +119,7 @@ export default function FileImport() {
                 <CardActions>
                     <div>
                         <label htmlFor="csvInput" style={{ display: "block", marginBottom: 5 }}>
-                            Select a CSV File
+                            Select an account balance file (allowed only .csv format)
                         </label>
                         <input
                             onChange={handleFileChange}
