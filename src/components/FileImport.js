@@ -101,9 +101,9 @@ export default function FileImport() {
     const validateEndBalanceData = (tableData) => {
         const wrongData = tableData.filter(row => {
             // check if start balance and mutation is equal to end balance
-            if (Number(row["Start Balance"]) + Number(row["Mutation"]) != Number(row["End Balance"])) {
-                console.log(Number(row["Start Balance"]) + Number(row["Mutation"]))
-                console.log('End', Number(row["End Balance"]))
+            if (parseFloat(row["Start Balance"]) + parseFloat(row["Mutation"]) != parseFloat(row["End Balance"])) {
+                console.log(parseFloat(row["Start Balance"]) + parseFloat(row["Mutation"]))
+                console.log('End', parseFloat(row["End Balance"]))
                 return true
             }
             return false;

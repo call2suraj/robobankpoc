@@ -34,7 +34,7 @@ const columns = [
   },
 ];
 
-// show the table. If you want checkbox add checkboxSelection
+// show the table. If you want checkbox add 
 export default function DataTable(props) {
   return (
     <div className='div'>
